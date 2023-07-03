@@ -35,4 +35,5 @@ There’s no surprise that the likes of Kubernetes, Docker, and Heroku are using
 </details>
 
 ## References
+- https://go.dev/doc/tutorial/getting-started
 - https://www.freecodecamp.org/news/what-is-go-programming-language/
