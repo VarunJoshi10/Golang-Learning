@@ -34,6 +34,31 @@ There’s no surprise that the likes of Kubernetes, Docker, and Heroku are using
   Go has a vibrant and supportive community of developers. It has gained popularity due to its simplicity and performance, resulting in a growing ecosystem of libraries, frameworks, and tools. This active community ensures continuous improvement and provides resources for developers to enhance their skills.
 </details>
 
+## Basic Concepts of Go
+* Basic Understanding of
+    * Variables
+    * Constants
+    * Packages and import/export
+    * Functions
+    * Pointers
+    * Mutability
+ * Types
+    * Type Conversion 
+    * Type assertion**
+    * Structs
+    * Composition
+ * Collection Types
+    * Arrays
+    * Slicing
+    * Range & Maps
+ * Control Flow
+    * If, For, Switch statement
+ * Methods
+ * Interfaces
+ * Concurrency
+    * Goroutines
+    * Channels
+
 ## References
 - https://go.dev/doc/tutorial/getting-started
 - https://www.freecodecamp.org/news/what-is-go-programming-language/
