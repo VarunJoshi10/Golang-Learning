@@ -38,4 +38,9 @@ func main() {
 
 	fmt.Println(sort.IntsAreSorted(num))
 
+	//Removing an element from list
+
+	num = append(num[:3], num[4:]...)
+	fmt.Println(num)
+
 }
