@@ -1,8 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"net/http"
+)
 
-//Model
+// Model
 type Course struct {
 	CourseID    string `json:"courseid"`
 	CourseName  string `json:"coursename"`
@@ -26,4 +30,16 @@ func (c *Course) IsEmpty() bool {
 
 func main() {
 	fmt.Println("This is example of Api")
+}
+
+//controller
+
+func serveHome(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("<h1>Hello this is API</h1>"))
+}
+
+func getAllCourses(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("Get All Courses"))
+	w.Header().Set("Content-Type", "application/json")
+	json.NewEncoder(w).Encode(course)
 }
