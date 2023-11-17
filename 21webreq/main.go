@@ -11,7 +11,8 @@ const url string = "http://localhost:8000/get"
 
 func main() {
 	fmt.Println("This is example of Request like GET,POST")
-	PerformGetRequest(url)
+	// PerformGetRequest(url)
+	PerformPostJsonRequest()
 
 }
 
@@ -29,6 +30,21 @@ func PerformGetRequest(url string) {
 	byteCount, _ := responseString.Write(content)
 	fmt.Println(byteCount)
 	fmt.Println(responseString.String())
+}
+
+func PerformPostJsonRequest() {
+	const myurl = "http://localhost:8000/post"
+
+	responseBody := strings.NewReader(`
+		{
+			"name":"Varun"
+		}
+	`)
+
+	response, _ := http.Post(myurl, "application/json", responseBody)
+
+	content, _ := ioutil.ReadAll(response.Body)
+	fmt.Println(string(content))
 }
 
 func checkNilErr(err error) {
