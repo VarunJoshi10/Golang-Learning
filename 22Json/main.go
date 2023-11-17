@@ -15,7 +15,8 @@ type course struct {
 
 func main() {
 	fmt.Println("This is example of Json")
-	JsonEncoder()
+	// JsonEncoder()
+	JsonDecoder()
 
 }
 
@@ -27,4 +28,39 @@ func JsonEncoder() {
 	}
 	result, _ := json.MarshalIndent(myCourse, "", "\t")
 	fmt.Println(string(result))
+}
+
+func JsonDecoder() {
+	jsonDataFromWeb := []byte(`
+	{
+		"coursename": "Golang",
+		"Price": 100,
+		"website": "Youtube.com",
+		"tags": [
+				"go"
+		]
+	}
+	`)
+	//check validity
+	checkValid := json.Valid(jsonDataFromWeb)
+
+	//One way
+	var lcoCourse course
+	if checkValid {
+		json.Unmarshal(jsonDataFromWeb, &lcoCourse)
+		fmt.Printf("%#v\n", lcoCourse)
+	} else {
+		fmt.Println("JSON IS NOT VALID")
+	}
+
+	// Another Way
+	var myData map[string]interface{}
+	json.Unmarshal(jsonDataFromWeb, &myData)
+	fmt.Println(myData)
+
+	//Iterating Over Map
+	for k, v := range myData {
+		fmt.Printf("%v : %v Type:%T\n", k, v, v)
+	}
+
 }
